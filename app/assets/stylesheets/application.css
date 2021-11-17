@@ -11,6 +11,34 @@
   align-items: center;
   justify-content: space-between;
 }
-.header_left a{
-  color:black;
+.header_left{
+  font-size: 20px;
 }
+.header_right{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.header_right li{
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  justify-content: space-between;
+}
+.header a{
+  text-decoration: none;
+  color:rgb(43, 84, 106);
+}
+.header a:hover{
+  color:rgb(43, 84, 106);
+}
+.header_item{
+  padding-left: 15px;
+  padding-right: 15px;
+  height:40px;
+}
+.header_item:hover{
+  background-color: #F0F4F9;
+  
+  }
+
