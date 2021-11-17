@@ -19,10 +19,12 @@
       <li class="header_item"><%= link_to("新規投稿","#")%></li>
      
       <li class="header_item"><%= link_to("ログイン","#")%></li>
-      <li class="header_item"><%= link_to("新規登録","#")%></li>
-     
+      <li class="header_item"><%= link_to("新規登録",new_user_path)%></li>
+
      </div>
     </div>
     <%= yield %>
+    <%# 開発環境のみ表示 Rails.envは環境の論理値を取る %>
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>

@@ -40,5 +40,33 @@ justify-content: space-between;
 .header_item:hover{
   background-color: #F0F4F9;
   
-  }
+}
 
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  margin-left: 40px;
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+.sidebar{
+  width:200px;
+  font-family:Lato, "Hiragino Maru Gothic Pro", "Meiryo UI", Meiryo, "MS PGothic", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  /* background-color: aqua; 　検証用*/
+  border-right: 1px solid;
+  border-color:#EFF3F4;
+}
+.sidebar li{
+ padding-top: 12px;
+ padding-bottom: 12px;
+ list-style: none;
+}
+.signup-form input{
+
+}
