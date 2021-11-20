@@ -8,6 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 // bootstrap読み込み
+require("jquery")
 import 'bootstrap';
 import '../stylesheets/application';
 

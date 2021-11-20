@@ -58,7 +58,7 @@ justify-content: space-between;
   font-family:Lato, "Hiragino Maru Gothic Pro", "Meiryo UI", Meiryo, "MS PGothic", sans-serif;
   font-size: 16px;
   font-weight: 400;
-  /* background-color: aqua; 　検証用*/
+  /* background-color: aqua; 検証用*/
   border-right: 1px solid;
   border-color:#EFF3F4;
 }
@@ -67,4 +67,3 @@ justify-content: space-between;
  padding-bottom: 12px;
  list-style: none;
 }
-

@@ -23,6 +23,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     follow_redirect!
     assert_template "static_pages/home"
+    assert is_logged_in? #test_helperのis_logged_in?を実行 ログインに成功しているはずなのでtrueになるはず
     assert_not flash.empty?
   end
 

@@ -9,18 +9,32 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </head>
 
   <body>
     <div class="header">
-     <div class="header_left header_item"><%= link_to("FAQ_APP","/")%></div>
+     <div class="header_left header_item"><%= link_to("FAQ_APP",root_path)%></div>
      <div class="header_right">
 
       <li class="header_item"><%= link_to("新規投稿","#")%></li>
-     
-      <li class="header_item"><%= link_to("ログイン","#")%></li>
-      <li class="header_item"><%= link_to("新規登録",new_user_path)%></li>
-
+      <% if logged_in? %>
+      <li class="dropdown header_item">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= @current_user.name%></a>
+        <ul class="dropdown-menu">
+          <%# user_path(@current_user.id) %>
+          <li><%= link_to("プロフィール",user_path(@current_user.id))%></li>
+          <li><%= link_to("設定","#")%></li>
+          <li class="divider"></li>
+          <li><%= link_to("ログアウト",logout_path, method: :delete)%></li>
+        </ul>
+      </li>
+      <% else %>
+        <li><%= link_to("ログイン",login_path)%></li>
+        <li><%= link_to("新規登録",new_user_path)%></li>
+      <% end %>
      </div>
     </div>
     <% flash.each do |message_type,message| %>
