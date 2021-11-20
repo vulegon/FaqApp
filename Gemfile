@@ -7,6 +7,7 @@ ruby '3.0.2'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 gem 'bcrypt',         '3.1.13'
 gem 'rails-i18n'
+gem 'rails-controller-testing'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets

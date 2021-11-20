@@ -23,6 +23,9 @@
 
      </div>
     </div>
+    <% flash.each do |message_type,message| %>
+      <div class="alert alert-<%=message_type%>"> <%= message %> </div>
+    <% end %>
     <%= yield %>
     <%# 開発環境のみ表示 Rails.envは環境の論理値を取る %>
     <%= debug(params) if Rails.env.development? %>

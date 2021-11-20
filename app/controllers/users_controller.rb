@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def show
+    @user = User.find(params[:id])
+  end
+
   def new
     @user = User.new
   end
@@ -6,6 +10,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      flash[:success] = "アカウントを登録しました。"
+      #get redirect_to user_path(@user)
+      #get redirect_to user_path(@user.id)
+      #ex redirect_to user_path(1)→/users/1
+      # redirect_to @user
+      redirect_to root_url
     else
       render "new"
     end
