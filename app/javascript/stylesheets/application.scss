@@ -23,4 +23,13 @@ input {
     margin: 0 0 30px 0;
   }
 }
-
+.checkbox{
+  span {
+    margin-left: 10px;
+    font-weight: normal;
+  } 
+}
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
