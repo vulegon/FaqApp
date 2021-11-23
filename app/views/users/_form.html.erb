@@ -1,0 +1,17 @@
+<%# @userが新規ユーザーの場合はPOSTリクエスト そうでない場合はPATCH User.new.new_record?でtrue or false判断 %>
+<%= form_with(model: @user, local: true) do |f| %> 
+  <%= render "shared/error_messages" %>
+  <%= f.label "ユーザー名" %>
+  <%= f.text_field :name ,class: 'form-control' %>
+
+  <%= f.label "メールアドレス" %>
+  <%= f.email_field :email ,class: 'form-control'%>
+
+  <%= f.label "パスワード" %>
+  <%= f.password_field :password ,class: 'form-control'%>
+
+  <%= f.label "パスワード(確認)" %>
+  <%= f.password_field :password_confirmation,class: 'form-control' %>
+
+  <%= f.submit "変更" , class:"btn btn-primary"%>
+<% end %>

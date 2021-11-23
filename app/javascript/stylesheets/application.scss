@@ -33,3 +33,24 @@ input {
   width: auto;
   margin-left: 0;
 }
+.users_all{
+
+  a{
+    color: black;
+    text-decoration: none;
+  }
+  ul{
+    list-style: none;
+  }
+  li{
+    list-style: none;
+  }
+}
+.user_index{
+  width: 500px;
+  border-bottom: 1px solid #DADCE0;
+  padding: 10px 0;
+  :hover{
+    background-color: #F0F4F9;
+  }
+}
