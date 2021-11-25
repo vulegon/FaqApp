@@ -49,8 +49,31 @@ input {
 .user_index{
   width: 500px;
   border-bottom: 1px solid #DADCE0;
-  padding: 10px 0;
+  margin: 0 auto;
+  position: relative;
+  a{
+    display: block;
+    padding-top:  10px;
+    padding-bottom: 10px;
+  }
   :hover{
     background-color: #F0F4F9;
   }
 }
+.user_delete{
+  position: absolute;
+  right:0;
+  top: 0;
+  z-index: 100;
+}
+.user_show{
+  a{
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+.user_show_info{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+

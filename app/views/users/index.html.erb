@@ -1,8 +1,14 @@
-<ul class="users_all">
+<div class="users_all">
   <% @users.each do |user| %>
-    <%= link_to user_path(user), class:"user_index" do %>
-      <li><%= user.name %></li>
-      <li><%= user.email %></li>
-    <% end %>
+    <div class="user_index">
+      <%= link_to user_path(user) do %>
+        <div><%= user.name %><br><%= user.email %></div>
+      <% end %>
+      <% if current_user.admin? && !current_user?(user) %>
+        <%= link_to "削除", user_path(user), method: :delete, class:"user_delete" ,data:{confirm: "削除しますか?"}%>
+      <% end %>
+    </div>
   <% end %>
-</ul>
+</div>
+
+

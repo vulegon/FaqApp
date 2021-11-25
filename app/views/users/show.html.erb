@@ -1,5 +1,13 @@
-<p>ユーザー名</p>
-<p><%= @user.name %></p>
-<p>メールアドレス</p>
-<p><%= @user.email %></p>
-<%= link_to "変更" ,edit_user_path(@user) , class:"btn btn-primary"%>
+<div class="row">
+  <div class="user_show col-md-3 offset-md-4">
+    <div class="user_show_info">
+      <div>ユーザー名</div>
+      <div><%= @user.name %></div>
+    </div>
+    <div class="user_show_info">
+      <div>メールアドレス</div>
+      <div><%= @user.email %></div>
+    </div>
+    <%= link_to "編集" ,edit_user_path(@user) , class:"btn btn-primary"%>
+  </div>
+</div>
