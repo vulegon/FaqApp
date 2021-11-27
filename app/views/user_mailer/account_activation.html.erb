@@ -1,0 +1,5 @@
+<p>こんにちは <%= @user.name %> さん</p>
+<p>以下のURLをクリックしてアカウントを有効化してください。</p>
+<% url = edit_account_activation_url(@user.activation_token,email:  @user.email) %>
+<%= link_to "#{url}", url %>
+<p>このEメールアドレスは、配信専用です。このメッセージに返信しないようお願いいたします。</p>

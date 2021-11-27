@@ -42,7 +42,8 @@ Rails.application.configure do
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
-
+  config.action_mailer.default_url_options = { host: 'example.com' }
+  
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
@@ -57,4 +58,5 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
+  
 end

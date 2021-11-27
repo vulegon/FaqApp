@@ -3,12 +3,15 @@ class UsersController < ApplicationController
   before_action :correct_user, only:[:edit, :update]
   before_action :admin_user, only: :destroy
 
+  #GET  /users users_path
   def index
-    @users = User.all
+    @users = User.where(activated: true)
   end
 
+  #GET  /users/:id user_path
   def show
     @user = User.find(params[:id])
+    redirect_to root_url and return unless @user.activated?
   end
 
   def new
@@ -18,8 +21,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user #sessions_helperのlogin
-      flash[:success] = "アカウントを登録しました。"
+      @user.send_activation_email
+      flash[:info] = "アカウントを有効化するメールを送信しました。メールをご確認ください。"
       #get redirect_to user_path(@user)
       #get redirect_to user_path(@user.id)
       #ex redirect_to user_path(1)→/users/1
