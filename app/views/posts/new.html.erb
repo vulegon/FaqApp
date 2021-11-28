@@ -1,0 +1,18 @@
+<%= stylesheet_link_tag "actiontext", :media => "all" %>
+<%= form_with(model: @post, local: true) do |f| %>
+  <div class="post_all">
+    <div class="post_title">
+      <%= f.label "タイトル" %>
+      <%= f.text_field :title ,class:"form-control"%>
+    </div>
+    <div class="field">
+      <%= f.label "内容" %>
+      <%= f.rich_text_area :content %>
+    </div>
+    <div class="post_create">
+      <%= f.submit "作成" , class:"btn btn-primary"%>
+    </div>
+
+  </div>
+
+<% end %>
