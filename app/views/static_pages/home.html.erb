@@ -1,6 +1,12 @@
-<%= render'layouts/sidebar'%>
+<div class="contents">
+  <%= render'layouts/sidebar'%>
+  <div class="all_posts">
+    <% @posts.each do |post| %>
+    <div class="post_content">
+      <%= link_to "#{post.title}", post_path(post), class:"post_title"%>
+      <%= post.content%>
+    </div>
+    <% end %> 
+  </div>
+</div>
 
-<% @posts.each do |post| %>
-  <%= link_to "#{post.title}", post_path(post)%>
-  <%= post.content%>
-<% end %>

@@ -59,4 +59,12 @@ module SessionsHelper
   def store_location
     session[:forwarding_url] = request.original_url if request.get? #request.original_urlでリクエスト先を取得する
   end
+
+  def logged_in_user
+    unless logged_in?
+      store_location #sessions_helper アクセスしたURLを記憶する
+      flash[:danger] = "ログインしてください"
+      redirect_to login_path
+    end
+  end
 end

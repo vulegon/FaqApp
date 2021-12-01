@@ -1,7 +1,16 @@
 <%= stylesheet_link_tag "actiontext", :media => "all" %>
 <%= form_with(model: @post, local: true) do |f| %>
   <div class="post_all">
-    <div class="post_title">
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="new_post_title">
       <%= f.label "タイトル" %>
       <%= f.text_field :title ,class:"form-control"%>
     </div>
@@ -12,7 +21,5 @@
     <div class="post_create">
       <%= f.submit "作成" , class:"btn btn-primary"%>
     </div>
-
   </div>
-
 <% end %>

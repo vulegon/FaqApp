@@ -15,9 +15,9 @@
   font-size: 20px;
 }
 .header_right{
-display: flex;
-align-items: center;
-justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .header_right li{
   display: flex;
@@ -59,11 +59,30 @@ justify-content: space-between;
   font-size: 16px;
   font-weight: 400;
   /* background-color: aqua; 検証用*/
-  border-right: 1px solid;
-  border-color:#EFF3F4;
+  /* border-right: 1px solid;
+  border-color:#EFF3F4; */
 }
 .sidebar li{
  padding-top: 12px;
  padding-bottom: 12px;
  list-style: none;
+}
+.contents{
+  display: flex;
+  justify-content: center;
+}
+.post_content{
+  width: 720px;
+  border-bottom: 1px solid;
+  border-color:#DDDD;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.post_content a{
+  text-decoration: none;
+  color:#117EC6;
+}
+.post_title{
+  font-size: 20px;
+  font-weight: 700;
 }

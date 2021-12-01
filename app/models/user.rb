@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :posts #@user.posts @user.posts.create(arg) @user.posts.build(arg) @user.posts.find_by(id:1)などを使えるようにする
   attr_accessor :remember_token, :activation_token
   #before_save { self.email = self.email.downcase }右式のselfは省略できる
   before_save :downcase_email

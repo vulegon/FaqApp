@@ -8,6 +8,9 @@ ja:
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
+      post:
+        title: "タイトル"
+        content: "内容"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
