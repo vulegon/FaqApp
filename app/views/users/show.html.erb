@@ -11,3 +11,15 @@
     <%= link_to "編集" ,edit_user_path(@user) , class:"btn btn-primary"%>
   </div>
 </div>
+<div class="contents">
+  <div class="all_posts">
+    <% @posts.each do |post|%>
+      <div class="post_content">
+        <div>
+          <div><%= post.title%></div>
+          <div><%= post.content%></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

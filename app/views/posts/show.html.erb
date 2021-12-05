@@ -1,3 +1,13 @@
-<%= @post.title%>
-<%= @post.content%>
+<div class="contents">
+  <div class="post_show_content">
+    <div class="post_show_title"><%= @post.title%></div>
+    <div class="post_show_content"><%= @post.content%></div>
+  </div>
+</div> 
+<div class="contents">
+  <div class="post_show_edit">
+    <div><%= link_to "編集", edit_post_path, class:"btn btn-primary" %></div>
+    <div><%= link_to "削除", post_path, method: :delete, class:"post_show_delete btn btn-primary" %></div>
+  </div>
 
+</div>

@@ -3,8 +3,8 @@
   <div class="all_posts">
     <% @posts.each do |post| %>
     <div class="post_content">
-      <%= link_to "#{post.title}", post_path(post), class:"post_title"%>
-      <%= post.content%>
+      <div><%= link_to "#{post.title}", post_path(post), class:"post_title"%></div>
+      <div><%= post_img_remove(post.content)%></div>
     </div>
     <% end %> 
   </div>

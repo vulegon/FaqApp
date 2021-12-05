@@ -41,7 +41,6 @@
   background-color: #F0F4F9;
   
 }
-
 .debug_dump {
   clear: both;
   float: left;
@@ -52,7 +51,6 @@
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
 }
-
 .sidebar{
   width:200px;
   font-family:Lato, "Hiragino Maru Gothic Pro", "Meiryo UI", Meiryo, "MS PGothic", sans-serif;
@@ -73,10 +71,9 @@
 }
 .post_content{
   width: 720px;
-  border-bottom: 1px solid;
-  border-color:#DDDD;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  border: 1px solid;
+  border-color:#EFF3F4;
+  padding: 10px 5px 5px 15px;
 }
 .post_content a{
   text-decoration: none;
@@ -85,4 +82,29 @@
 .post_title{
   font-size: 20px;
   font-weight: 700;
+}
+.post_show_content{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 850px;
+}
+.post_show_title{
+  width: 100%;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 10px 0;
+  border-bottom: 1px solid;
+  border-color:#DDDD;
+}
+.post_show_content{
+  margin-top: 10px;
+}
+.post_show_edit{
+  display: flex;
+  justify-content: flex-end;
+  width: 850px;
+}
+.post_show_delete{
+  margin-left: 10px;
 }

@@ -15,7 +15,27 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find(params[:id])
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      flash[:success] = "更新が完了しました。"
+      redirect_to @post
+    else
+      render "edit"
+    end
+  end
+
+  def destroy
+    Post.find(params[:id]).destroy
+    flash[:success] = "削除しました。"
+    redirect_to root_url
   end
 
   private
