@@ -61,13 +61,12 @@ private
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user)
-  end
-
   def admin_user
     redirect_to(root_url) unless current_user.admin?
   end
 
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
+  end
 end

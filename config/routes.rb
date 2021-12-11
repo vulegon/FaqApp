@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   delete "/logout", to:"sessions#destroy"  
   resources :users
   resources :account_activations, only:[:edit] #edit_account_activation_url(token) URL:/account_activation/token/edit
-  resources :posts
+  resources :posts, only:[:create,:new,:edit,:show,:update,:destroy]
 end

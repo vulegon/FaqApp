@@ -1,19 +1,28 @@
 html:
   title: "HTMLタイトル"
   created_at: <%= 10.minutes.ago %>
-  user: michael
+  user: archer
 
 python:
   title: "pythonでEXLEL関係を使うライブラリについて"
   created_at: <%= 3.years.ago %>
-  user: michael
+  user: lana
 
 css:
   title: "中央寄せする方法について"
   created_at: <%= 2.hours.ago %>
-  user: michael
+  user: malory
 
 most_recent:
   title: "一番最初に表示されるタイトル"
   created_at: <%= Time.zone.now %>
   user: michael
+
+<% 30.times do |n|%>
+post_<%= n %>:
+  title: "test_title#{n}"
+  created_at: <%= 42.days.ago %>
+  user: michael
+<% end %>
+
+

@@ -4,6 +4,7 @@ class PostsNewTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:michael)
+    @other_user = users(:archer)
   end
 
   test "無効な投稿のテスト(タイトル空)" do
@@ -28,7 +29,7 @@ class PostsNewTest < ActionDispatch::IntegrationTest
     assert_template 'posts/new'
   end
 
-  test "有効な投稿のテスト" do
+  test "有効な投稿のテスト(admin)" do
     log_in_as(@user)
     get new_post_path
     assert_difference 'Post.count',1 do
@@ -40,6 +41,45 @@ class PostsNewTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
     follow_redirect!
     assert_template 'static_pages/home'
+    assert_select "a[href=?]",post_path(@user.posts.first)
+    assert_select "a[href=?]",user_path(@user)
+    get edit_post_path(@user.posts.first)
+    assert_template "posts/edit"
+    edit_title = "変更後タイトル"
+    edit_content = "変更後内容"
+    patch post_path(@user.posts.first),params: {post: {title: edit_title,content: edit_content,user_id:@user.id}}
+    assert_not flash.empty?
+    assert_redirected_to post_path(@user.posts.first)
+    @user.posts.first.reload
+    assert_equal edit_title, @user.posts.first.title
   end
 
+  test "別の人が投稿したのを編集できることを確認するテスト" do
+    log_in_as(@user)
+    get new_post_path
+    assert_difference 'Post.count',1 do
+      post posts_path, params: { post: { title:  "サンプルタイトル",
+                                         content: "サンプル内容",
+                                         user_id: @user.id  } }
+    end
+    assert_not flash.empty?
+    assert_redirected_to root_url
+    follow_redirect!
+    assert_template 'static_pages/home'
+    assert_select "a[href=?]",post_path(@user.posts.first)
+    assert_select "a[href=?]",user_path(@user)
+    delete logout_path
+    log_in_as(@other_user)
+    get edit_post_path(@user.posts.first)
+    assert_template "posts/edit"
+    edit_title = "変更後タイトル"
+    edit_content = "変更後内容"
+    patch post_path(@user.posts.first),params: {post: {title: edit_title,content: edit_content,user_id:@user.id}}
+    assert_not flash.empty?
+    assert_redirected_to post_path(@user.posts.first)
+    @user.posts.first.reload
+    assert_equal edit_title, @user.posts.first.title
+  end
+
+  
 end

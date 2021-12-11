@@ -1,5 +1,10 @@
 <div class="contents">
   <div class="post_show_content">
+    <div class="post_user_name"><%= @post.user.name%></div>
+    <div class="post_show_at">
+      <div class="post_at post_show_create_at">投稿日:<%= l @post.created_at, format: :short %></div>
+      <div class="post_at">更新日:<%= l @post.updated_at, format: :short %></div>
+    </div>
     <div class="post_show_title"><%= @post.title%></div>
     <div class="post_show_content"><%= @post.content%></div>
   </div>
@@ -7,7 +12,8 @@
 <div class="contents">
   <div class="post_show_edit">
     <div><%= link_to "編集", edit_post_path, class:"btn btn-primary" %></div>
-    <div><%= link_to "削除", post_path, method: :delete, class:"post_show_delete btn btn-primary" %></div>
+    <% if current_user?(@post.user) || current_user.admin? %>
+      <div><%= link_to "削除", post_path, method: :delete, class:"post_show_delete btn btn-primary" %></div>
+    <% end %>
   </div>
-
 </div>

@@ -79,6 +79,15 @@
   text-decoration: none;
   color:#117EC6;
 }
+.post_content a:hover{
+  text-decoration: underline;
+}
+.post_content span{
+  font-size: 20px;
+  font-weight: 700;
+  font-family: font-family"Segoe UI", Meiryo, system-ui, -apple-system, "system-ui", sans-serif;
+  color: rgb(15, 20, 25);
+}
 .post_title{
   font-size: 20px;
   font-weight: 700;
@@ -107,4 +116,27 @@
 }
 .post_show_delete{
   margin-left: 10px;
+}
+.post_at{
+  font-size: 14px;
+  font-family:-apple-system, "Segoe UI", "Helvetica Neue", "Hiragino Kaku Gothic ProN", メイリオ, meiryo, sans-serif;
+  color: #666666;
+}
+.post_user_name{
+  font-weight: 700;
+  font-size:15px;
+  font-family:"Segoe UI", Meiryo, system-ui, -apple-system, "system-ui", sans-serif;
+}
+.post_user_name a{
+  text-decoration: none;
+  color:rgb(15, 20, 25);
+}
+.post_user_name a:hover{
+  text-decoration: underline;
+}
+.post_show_at{
+ display: flex;
+}
+.post_show_create_at{
+  margin-right: 16px;
 }

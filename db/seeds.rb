@@ -20,3 +20,10 @@ User.create!(name:  name,
     activated_at: Time.zone.now)
 end
 
+users = User.order(:created_at).take(6)
+50.times do |n|
+  title = "sample_title#{n+1}"
+  content = "sample_content#{n+1}"
+  users.each {|user| user.posts.create!(title: title, content: content)}
+end
+  

@@ -1,10 +1,15 @@
 <div class="contents">
   <%= render'layouts/sidebar'%>
   <div class="all_posts">
+    <div class="post_content"><span>最近の投稿</span></div>
     <% @posts.each do |post| %>
     <div class="post_content">
       <div><%= link_to "#{post.title}", post_path(post), class:"post_title"%></div>
       <div><%= post_img_remove(post.content)%></div>
+      <div>
+        <div class="post_user_name"><%= link_to post.user.name, user_path(post.user)%></div>
+        <div class="post_at"><%= l post.created_at, format: :short %></div>
+      </div>
     </div>
     <% end %> 
   </div>
