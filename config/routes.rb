@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only:[:edit] #edit_account_activation_url(token) URL:/account_activation/token/edit
   resources :posts, only:[:create,:new,:edit,:show,:update,:destroy]
+
+  get "/search" ,to:"posts#search"
 end

@@ -2,7 +2,7 @@
   color:rgb(43, 84, 106);
   font-size: 15px;
   font-family: Lato, "Hiragino Maru Gothic Pro", "Meiryo UI", Meiryo, "MS PGothic", sans-serif;
-  height:48px;
+  height:55px;
   border-bottom: 1px solid;
   /* border-color:rgb(186,198,211); */
   border-color:#EFF3F4;
@@ -13,6 +13,8 @@
 }
 .header_left{
   font-size: 20px;
+  display: flex;
+  align-items: center;
 }
 .header_right{
   display: flex;
@@ -35,7 +37,7 @@
 .header_item{
   padding-left: 15px;
   padding-right: 15px;
-  height:40px;
+  height:50px;
 }
 .header_item:hover{
   background-color: #F0F4F9;
@@ -140,3 +142,11 @@
 .post_show_create_at{
   margin-right: 16px;
 }
+.search_form{
+  height: 40px !important;
+  width: 500px;
+  border-radius: 20px;
+  box-shadow:0 0 8px rgba(0, 0, 0, 0.15);
+  border:none;
+}
+

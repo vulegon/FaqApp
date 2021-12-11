@@ -40,6 +40,11 @@ class PostsController < ApplicationController
     redirect_to root_url
   end
 
+  def search
+    keyword = params[:search_content]
+    @posts = Post.search(keyword)
+  end
+
   private
     #新規投稿時のtitleとcontentのみ許可する
     def post_params

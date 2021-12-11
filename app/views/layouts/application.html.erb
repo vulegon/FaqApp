@@ -18,6 +18,12 @@
   <body>
     <div class="header">
      <div class="header_left header_item"><%= link_to("FAQ_APP",root_path)%></div>
+     <div class="header_middle">
+      <%= form_with(url: search_path, method: :get, local: true) do |f|%>
+        <%= f.text_field :search_content, class:"search_form",placeholder:"キーワード検索"%>
+        <%= f.submit '検索' %>
+      <% end %>
+     </div>
      <div class="header_right">
       <% if logged_in? %>
       <li class="header_item"><%= link_to("新規投稿",new_post_path)%></li>
