@@ -19,9 +19,8 @@
     <div class="header">
      <div class="header_left header_item"><%= link_to("FAQ_APP",root_path)%></div>
      <div class="header_right">
-
-      <li class="header_item"><%= link_to("新規投稿",new_post_path)%></li>
       <% if logged_in? %>
+      <li class="header_item"><%= link_to("新規投稿",new_post_path)%></li>
       <li class="header_item"><%= link_to("ユーザー一覧",users_path)%></li>
       <li class="dropdown header_item">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= @current_user.name%></a>

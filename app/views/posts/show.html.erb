@@ -11,9 +11,12 @@
 </div> 
 <div class="contents">
   <div class="post_show_edit">
-    <div><%= link_to "編集", edit_post_path, class:"btn btn-primary" %></div>
-    <% if current_user?(@post.user) || current_user.admin? %>
-      <div><%= link_to "削除", post_path, method: :delete, class:"post_show_delete btn btn-primary" %></div>
+    <% if logged_in? %>
+      <div><%= link_to "編集", edit_post_path, class:"btn btn-primary" %></div>
+      <% if current_user?(@post.user) || current_user.admin? %>
+        <div><%= link_to "削除", post_path, method: :delete, class:"post_show_delete btn btn-primary" %></div>
+      <% end %>
     <% end %>
+
   </div>
 </div>
