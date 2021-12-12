@@ -151,4 +151,13 @@
   padding-left: 15px;
   font-family: "Font Awesome 5 Free";
 }
+#header_dropdown_menu{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header_dropdown_menu_list{
+  margin-left: 5px;
+}
 

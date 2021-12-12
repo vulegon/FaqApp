@@ -28,13 +28,13 @@
       <li class="header_item"><%= link_to("新規投稿",new_post_path)%></li>
       <li class="header_item"><%= link_to("ユーザー一覧",users_path)%></li>
       <li class="dropdown header_item">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= @current_user.name%></a>
-        <ul class="dropdown-menu">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="header_dropdown_menu"><%= @current_user.name%></a>
+        <ul class="dropdown-menu dropdown-menu-right">
           <%# user_path(@current_user.id) %>
-          <li><%= link_to "プロフィール",current_user %></li>
-          <li><%= link_to "設定",edit_user_path(current_user) %></li>
-          <li class="divider"></li>
-          <li><%= link_to "ログアウト",logout_path, method: :delete %></li>
+          <li class="header_dropdown_menu_list"><%= link_to "プロフィール",current_user %></li>
+          <li class="header_dropdown_menu_list"><%= link_to "設定",edit_user_path(current_user) %></li>
+          <li class="dropdown-divider"></li>
+          <li class="header_dropdown_menu_list"><%= link_to "ログアウト",logout_path, method: :delete %></li>
         </ul>
       </li>
       <% else %>
