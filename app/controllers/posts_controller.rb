@@ -41,8 +41,16 @@ class PostsController < ApplicationController
   end
 
   def search
-    keyword = params[:search_content]
-    @posts = Post.search(keyword)
+    @value = params[:search_content]
+    redirect_to root_path if  @value.blank?
+    keywords = @value.split(/[[:blank:]]+/)
+    @posts = []
+    keywords.each do |keyword|
+      #post.rb
+      @posts += Post.search(keyword) unless keyword.blank?
+    end
+    @posts.uniq!
+
   end
 
   private

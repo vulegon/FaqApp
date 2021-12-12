@@ -1,4 +1,6 @@
 @import "bootstrap";
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import "~@fortawesome/fontawesome-free/scss/solid";
 @mixin box_sizing{
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;

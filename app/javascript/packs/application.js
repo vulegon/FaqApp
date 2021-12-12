@@ -11,6 +11,7 @@ require("jquery")
 // bootstrap読み込み
 import 'bootstrap';
 import '../stylesheets/application';
+import '@fortawesome/fontawesome-free/js/all'
 
 Rails.start()
 Turbolinks.start()

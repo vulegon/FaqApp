@@ -148,5 +148,7 @@
   border-radius: 20px;
   box-shadow:0 0 8px rgba(0, 0, 0, 0.15);
   border:none;
+  padding-left: 15px;
+  font-family: "Font Awesome 5 Free";
 }
 
