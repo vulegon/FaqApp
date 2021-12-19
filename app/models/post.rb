@@ -5,6 +5,8 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
   validates :user_id, presence: true
+  belongs_to :category
+  validates :category_id, presence: true
 
   scope :search, -> (search_param = nil){
     return if search_param.blank?

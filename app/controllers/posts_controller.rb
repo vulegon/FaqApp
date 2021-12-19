@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @categories = Category.all
   end
   
   def create
@@ -42,22 +43,38 @@ class PostsController < ApplicationController
 
   def search
     @value = params[:search_content]
-    redirect_to root_path if  @value.blank?
-    keywords = @value.split(/[[:blank:]]+/)
+    @search_category = params[:search_category]
+    @categories = Category.all
     @posts = []
-    keywords.each do |keyword|
-      #post.rb
-      @posts += Post.search(keyword) unless keyword.blank?
+    if @value && !@search_category.blank?
+      redirect_to root_path if  @value.blank?
+      keywords = @value.split(/[[:blank:]]+/)
+      keywords.each do |keyword|
+        #post.rb
+        @posts += Post.search(keyword) unless keyword.blank?
+      end
+      @posts.uniq!
+      category_id = Category.find_by(name: @search_category).id 
+      @posts = @posts.select{|post| post[:category_id]==category_id}
+    elsif @value
+      redirect_to root_path if  @value.blank?
+      keywords = @value.split(/[[:blank:]]+/)
+      keywords.each do |keyword|
+        #post.rb
+        @posts += Post.search(keyword) unless keyword.blank?
+      end
+      @posts.uniq!
+    elsif @search_category
+      category_id = Category.find_by(name: @search_category).id
+      @posts = Post.where(category_id: category_id)
     end
-    @posts.uniq!
-
   end
 
   private
-    #新規投稿時のtitleとcontentのみ許可する
+    #新規投稿時のtitleとcontent,category_idのみ許可する
     def post_params
       #マスアサインメント対策 :post属性の内容の属性のみ許可する
-      params.require(:post).permit(:title,:content)
+      params.require(:post).permit(:title,:content,:category_id)
     end
     
     def correct_user

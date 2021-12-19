@@ -9,8 +9,14 @@
       <div><%= @user.email %></div>
     </div>
     <% if (@user==current_user) || current_user.admin? %>
-      <%= link_to "編集" ,edit_user_path(@user) , class:"btn btn-primary"%>
+      <%= link_to "プロフィール編集" ,edit_user_path(@user) , class:"btn btn-light rounded-pill"%>
     <% end %>
+  </div>
+</div>
+<div class="contents">
+  <div class="user_show_tab">
+    <div class="tablist">投稿</div>
+    <div class="tablist">いいね</div>
   </div>
 </div>
 <div class="contents">

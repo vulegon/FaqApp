@@ -1,0 +1,31 @@
+<%= stylesheet_link_tag "actiontext", :media => "all" %>
+<%= form_with(model: @post, local: true) do |f| %>
+  <div class="post_all">
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="new_post_title">
+      <%= f.text_field :title ,class:"form-control",placeholder:"タイトルを記入"%>
+    </div>
+    <div class="new_post_category">
+      <%= f.label "登録カテゴリー"%>
+      <%= f.collection_select :category_id , Category.all, :id, :name, {prompt: "選択してください"},{class:"new_post_category_select"} %>
+    </div>
+    <div class="field">
+      <%= f.rich_text_area :content, placeholder: "内容を記入します" %>
+    </div>
+    <div class="post_create">
+      <% if @post.new_record? %>
+        <%= f.submit "作成" , class:"btn btn-primary"%>
+      <% else %>
+        <%= f.submit "更新" , class:"btn btn-primary"%>
+      <% end %>
+    </div>
+  </div>
+<% end %>

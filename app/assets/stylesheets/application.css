@@ -41,7 +41,6 @@
 }
 .header_item:hover{
   background-color: #F0F4F9;
-  
 }
 .debug_dump {
   clear: both;
@@ -54,19 +53,32 @@
   box-sizing:         border-box;
 }
 .sidebar{
-  width:200px;
-  font-family:Lato, "Hiragino Maru Gothic Pro", "Meiryo UI", Meiryo, "MS PGothic", sans-serif;
+  width:150px;
+  font-family:Lato "Hiragino Maru Gothic Pro", "Meiryo UI", Meiryo, "MS PGothic", sans-serif;
   font-size: 16px;
   font-weight: 400;
   /* background-color: aqua; 検証用*/
   /* border-right: 1px solid;
   border-color:#EFF3F4; */
+  margin-top: 20px;
 }
-.sidebar li{
- padding-top: 12px;
- padding-bottom: 12px;
- list-style: none;
-}
+.sidebar a{
+  text-decoration: none;
+  color: black;
+ }
+ .sidebar a:hover{
+  color: black;
+ }
+ .sidebar_category{
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+ }
+ .sidebar_category:hover{
+  background-color: #F0F4F9;
+ }
+
 .contents{
   display: flex;
   justify-content: center;
@@ -125,6 +137,7 @@
   color: #666666;
 }
 .post_user_name{
+  margin-right:10px;
   font-weight: 700;
   font-size:15px;
   font-family:"Segoe UI", Meiryo, system-ui, -apple-system, "system-ui", sans-serif;
@@ -160,4 +173,76 @@
 .header_dropdown_menu_list{
   margin-left: 5px;
 }
-
+.user_show_tab{
+  width: 720px;
+  display: flex;
+  justify-content: flex-start;
+}
+.tablist{
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  width: 100%;
+  height: 53px;
+}
+.new_post_category{
+  position: relative;
+  width: 300px;
+  margin: 20px 0px 20px 0px;
+}
+.new_post_category::after{
+  position: absolute;
+  top: 60%; /* 矢印の位置 */
+  right: 15px; /* 矢印の位置 */
+  width: 10px; /* 矢印の大きさ */
+  height: 10px; /* 矢印の大きさ */
+  border-top: 3px solid #58504A; /* 矢印の線 */
+  border-right: 3px solid #58504A; /* 矢印の線 */
+  -webkit-transform: rotate(135deg); /* 矢印の傾き */
+  transform: rotate(135deg); /* 矢印の傾き */
+  pointer-events: none; /* 矢印部分もクリック可能にする */
+  content: ""; 
+}
+.new_post_category_select {
+  appearance: none; /* デフォルトの矢印を消す */
+  width: 300px; /* セレクトボックスの幅 */
+  height: 45px; /* セレクトボックスの高さ */
+  background-color: #FFFF;  /* セレクトボックスの背景色 */
+  border: none; /* セレクトボックスのデフォルトの枠線を消す */
+  border-radius: 2px;  /* セレクトボックスの四隅の丸み */
+  color: #58504A;  /* セレクトボックスの文字色 */
+  font-family: 'Kiwi Maru', serif;
+  padding: 10px; /* セレクトボックスの内側の余白 */
+  cursor: pointer;
+  border: 1px solid #dedede;
+  border-radius: 4px;
+  font-family: inherit;
+}
+.new_post_category_select:focus {
+  outline: none; /* focus 時のデフォルトの枠線を消す */
+}
+.new_post_category label{
+  margin-left: 10px;
+  color:rgb(43, 84, 106);
+  font-family: Lato;
+}
+.post_at_user_name{
+  display: flex;
+  justify-content: space-between;
+}
+.post_category{
+  display: flex;
+  margin: 5px 0px;
+}
+.post_category_name{
+  color:rgb(85, 85, 85);
+  font-family:"system-ui";
+  font-size:12px;
+  padding: 0px 5px 0px 5px;
+  background-color: rgb(223, 223, 223);
+}
+.post_category_tag {
+	border-top:9px solid transparent;
+  border-right: 9px solid rgb(223, 223, 223);;
+  border-bottom: 9px solid transparent;
+}

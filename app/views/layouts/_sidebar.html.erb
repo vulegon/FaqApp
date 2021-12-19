@@ -1,20 +1,8 @@
 <div class="sidebar">
-  <ul>
-    <li><a>HTML</a></li>
-    <li><a>CSS</a></li>
-    <li><a>JavaScript</a></li>
-    <li><a>jquery</a></li>
-    <li><a>Ruby</a></li>
-    <li><a>Ruby on Rails</a></li>
-    <li><a>PHP</a></li>
-    <li><a>Java</a></li>
-    <li><a>Python</a></li>
-    <li><a>ターミナル</a></li>
-    <li><a>Git</a></li>
-    <li><a>SQL</a></li>
-    <li><a>Sass</a></li>
-    <li><a>Go</a></li>
-  </ul>
+  <div>
+    <% @categories.each do |category| %>
+      <div class="sidebar_category"><%= link_to "#{category.name}", search_path(search_category: category.name) %></div>
+    <% end %>
+  </div>
+
 </div>
-
-

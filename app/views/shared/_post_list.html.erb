@@ -4,9 +4,13 @@
     <div class="post_content">
       <div><%= link_to "#{post.title}", post_path(post), class:"post_title"%></div>
       <div><%= post_img_remove(post.content)%></div>
-      <div>
-        <div class="post_user_name"><%= link_to post.user.name, user_path(post.user)%></div>
+      <div class="post_category">
+        <div class="post_category_tag"></div>
+        <div class="post_category_name"><%= post.category.name %></div>
+      </div>
+      <div class="post_at_user_name">
         <div class="post_at"><%= l post.created_at, format: :short %></div>
+        <div class="post_user_name"><%= link_to post.user.name, user_path(post.user)%></div>
       </div>
     </div>
   <% end %> 

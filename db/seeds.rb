@@ -20,10 +20,30 @@ User.create!(name:  name,
     activated_at: Time.zone.now)
 end
 
+categories = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "jquery",
+  "Ruby",
+  "Ruby on Rails",
+  "PHP",
+  "Java",
+  "Python",
+  "ターミナル",
+  "Git",
+  "SQL",
+  "Sass",
+  "Go"]
+categories.each do |category|
+  Category.create!(name: category)
+end
+
+
 users = User.order(:created_at).take(6)
 50.times do |n|
   title = "sample_title#{n+1}"
   content = "sample_content#{n+1}"
-  users.each {|user| user.posts.create!(title: title, content: content)}
+  category_id = (n % categories.length) + 1
+  users.each {|user| user.posts.create!(title: title, content: content, category_id: category_id)}
 end
-  
