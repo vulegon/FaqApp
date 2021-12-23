@@ -1,7 +1,48 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+HTML:
+  id: 1
+  name: HTML
 
-one:
-  name: MyString
+CSS:
+  id: 2
+  name: CSS
 
-two:
-  name: MyString
+JavaScript:
+  id: 3
+  name: JavaScript
+
+Ruby:
+  id: 4
+  name: Ruby
+
+Ruby on Rails:
+  id: 5
+  name: Ruby on Rails
+
+PHP:
+  id: 6
+  name: PHP
+
+Java:
+  id: 7
+  name: Java
+
+Python:
+  id: 8
+  name: Python
+
+ターミナル:
+  id: 9
+  name: ターミナル
+
+Git:
+  id: 10
+  name: Git
+SQL:
+  id: 11
+  name: SQL
+Sass:
+  id: 12
+  name: Sass
+Go:
+  id: 13
+  name: Go

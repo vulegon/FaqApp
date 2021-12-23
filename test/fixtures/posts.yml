@@ -2,27 +2,32 @@ html:
   title: "HTMLタイトル"
   created_at: <%= 10.minutes.ago %>
   user: archer
+  category: HTML
 
 python:
-  title: "pythonでEXLEL関係を使うライブラリについて"
+  title: "pythonでEXCEL関係を使うライブラリについて"
   created_at: <%= 3.years.ago %>
   user: lana
+  category: Python
 
 css:
   title: "中央寄せする方法について"
   created_at: <%= 2.hours.ago %>
   user: malory
+  category: CSS
 
 most_recent:
   title: "一番最初に表示されるタイトル"
   created_at: <%= Time.zone.now %>
   user: michael
+  category: JavaScript
 
 <% 30.times do |n|%>
 post_<%= n %>:
   title: "test_title#{n}"
   created_at: <%= 42.days.ago %>
   user: michael
+  category: Go
 <% end %>
 
 

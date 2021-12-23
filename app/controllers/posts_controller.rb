@@ -42,31 +42,21 @@ class PostsController < ApplicationController
   end
 
   def search
-    @value = params[:search_content]
-    @search_category = params[:search_category]
+    get_search_params
     @categories = Category.all
     @posts = []
-    if @value && !@search_category.blank?
-      redirect_to root_path if  @value.blank?
-      keywords = @value.split(/[[:blank:]]+/)
-      keywords.each do |keyword|
-        #post.rb
-        @posts += Post.search(keyword) unless keyword.blank?
-      end
-      @posts.uniq!
+    if !@value.blank? && !@search_category.blank? 
+      get_keywords(@value)
+      search_posts(@keywords)
       category_id = Category.find_by(name: @search_category).id 
       @posts = @posts.select{|post| post[:category_id]==category_id}
-    elsif @value
-      redirect_to root_path if  @value.blank?
-      keywords = @value.split(/[[:blank:]]+/)
-      keywords.each do |keyword|
-        #post.rb
-        @posts += Post.search(keyword) unless keyword.blank?
-      end
-      @posts.uniq!
-    elsif @search_category
+    elsif @search_category #side_barのcategoryがあったら
       category_id = Category.find_by(name: @search_category).id
       @posts = Post.where(category_id: category_id)
+    elsif @value #search_formのvalueがあったら
+      redirect_to root_path if  @value.blank?
+      get_keywords(@value)
+      search_posts(@keywords)
     end
   end
 
@@ -82,5 +72,22 @@ class PostsController < ApplicationController
       if !current_user.admin? && @post.nil?
         redirect_to root_url
       end
+    end
+
+    def get_search_params
+      @value = params[:search_content]
+      @search_category = params[:search_category]
+    end
+
+    def get_keywords(value)
+      @keywords = value.split(/[[:blank:]]+/)
+    end
+
+    def search_posts(keywords)
+      keywords.each do |keyword|
+        #post.rb
+        @posts += Post.search(keyword) unless keyword.blank?
+      end
+      @posts.uniq!
     end
 end
