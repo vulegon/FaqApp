@@ -1,27 +1,10 @@
 # README
+* Rails version
+Rails 6.1.4.1
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* どういうサイトか
+社内で
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 
 MAILGUN用のアカウントはgmailで確認してください
 https://accounts.google.com/ServiceLogin/signinchooser?service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin
@@ -31,3 +14,4 @@ https://accounts.google.com/ServiceLogin/signinchooser?service=mail&flowName=Gli
 admin権限を持ったユーザーは
 メールアドレス:admin@faqapp.org
 パスワード:password
+    
