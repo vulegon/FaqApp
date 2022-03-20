@@ -50,14 +50,16 @@ class PostsController < ApplicationController
       search_posts(@keywords)
       category_id = Category.find_by(name: @search_category).id 
       @posts = @posts.select{|post| post[:category_id]==category_id}
-    elsif @search_category #side_barのcategoryがあったら
+    elsif !@search_category.blank?  && @value.blank? #side_barのcategoryがあったら
       category_id = Category.find_by(name: @search_category).id
       @posts = Post.where(category_id: category_id)
-    elsif @value #search_formのvalueがあったら
+    elsif !@value.blank? && @search_category.blank? #search_formのvalueがあったら
       redirect_to root_path if  @value.blank?
       get_keywords(@value)
       search_posts(@keywords)
-    end
+    else
+      redirect_to root_path
+    end      
   end
 
   private
